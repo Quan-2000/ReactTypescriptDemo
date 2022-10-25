@@ -44,7 +44,7 @@ export const Counter = () => {
         Increment 10
       </button>
 
-      <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
+      <button onClick={() => dispatch({ type: 'reset' })}> Reset </button>
     </>
   )
 }

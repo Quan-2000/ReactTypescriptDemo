@@ -23,6 +23,28 @@ import { UserUseContextFutureValue } from './components/context/UserUseContextFu
 import { DomRef } from './components/ref/DomRef';
 import { MutableRef } from './components/ref/MutableRef';
 
+/*Class*/
+import { CounterClassComponent } from './components/class/CounterClassComponent';
+
+/*Component Props*/
+import { Private } from './components/auth/Private'
+import { Profile } from './components/auth/Profile'
+
+/*Generic Props*/
+import { List } from './components/generics/List'
+
+/*Restricting Props*/
+import { RandomNumber } from './components/restriction/RandomNumber';
+
+/*Template Literals and Exclude*/
+import { Toast } from './components/templateliterals/Toast';
+import { CustomButton } from './components/html/Button';
+
+// import { CustomComponent } from './components/html/CustomComponent';
+
+/*Polymorphic Components*/
+import { Text } from './components/polymorphic/Text'
+
 function App() {
   const personName = {
     first: 'Quan',
@@ -123,6 +145,71 @@ function App() {
       {/* useRef Hook */}
       <MutableRef />
 
+      <br></br>
+
+      {/* Class Component */}
+      <CounterClassComponent message='The count value is '/>
+
+      <br></br>
+
+      {/* Component Props */}
+      <Private isLoggedIn={true} component={Profile} />
+
+      <br></br>
+
+      {/* Generic Props */}
+      {/* <List 
+        items={['Batman', 'Superman', 'Wonder Woman']} 
+        onClick={(item) => console.log(item)} 
+      />
+      <List items={[1, 2, 3]} onClick={(item) => console.log(item)} /> */}
+      <List
+        items={[
+          {
+            id: 1,
+            first: 'Vu',
+            last: 'Le',
+          },
+          {
+            id: 2,
+            first: 'Quang',
+            last: 'Bui',
+          },
+          {
+            id: 3,
+            first: 'Nhat',
+            last: 'Huynh',
+          },
+        ]}
+        onClick={(item) => console.log(item)}
+      />
+
+      <br></br>
+
+      {/* Restricting Props */}
+      <RandomNumber value={10} isPositive />
+
+      <br></br>
+
+      {/* Template Literals and Exclude */}
+      <Toast position='center' />
+
+      <br></br>
+
+      {/* Wrapping HTML Elements */}
+      <CustomButton variant='primary' onClick={() => console.log('Clicked')}>
+        Primary Button
+      </CustomButton>
+
+      {/* Extracting a Components Prop Types */}
+      {/* <CustomComponent /> */}
+
+      <br></br>
+
+      {/* Polymorphic Components */}
+      <Text as='h1' size='lg'>Heading</Text>
+      <Text as='p' size='md'>Paragraph</Text>
+      <Text as='label' htmlFor='someId' size='sm' color='secondary'>Label</Text>
     </div>
   );
 }
